@@ -1,0 +1,141 @@
+[
+    {
+        "id":"1",
+        "code":9000,
+        "status":true,
+        "message":"Operation success"
+    },
+    {
+        "id":"2",
+        "code":9001,
+        "status":true,
+        "message":"Draft Saved Successfully"
+    },
+    {
+        "id":"3",
+        "code":9002,
+        "status":true,
+        "message":"Provide all mandatory fields"
+    },
+    {
+        "id":"4",
+        "code":9003,
+        "status":false,
+        "message":"Record not found"
+    },
+    {
+        "id":"5",
+        "code":9004,
+        "status":false,
+        "message":"Duplicate Record"
+    },
+    {
+        "id":"8",
+        "code":9007,
+        "status":false,
+        "message":"Operation Fail"
+    },
+    {
+        "id":"9",
+        "code":9008,
+        "status":false,
+        "message":"You cant delete folder since it has papers inside"
+    },
+    {
+        "id":"10",
+        "code":9009,
+        "status":false,
+        "message":"Null Argument"
+    },
+    {
+        "id":"11",
+        "code":9010,
+        "status":false,
+        "message":"Access Denied, You don't have Permission to perform this Action"
+    },
+    {
+        "id":"12",
+        "code":9011,
+        "status":false,
+        "message":"You can't delete, data in use"
+    },
+    {
+        "id":"13",
+        "code":9012,
+        "status":false,
+        "message":"Project's task(s) budget can't be Greater than Project's Component budget"
+    },
+    {
+        "id":"14",
+        "code":9013,
+        "status":false,
+        "message":"Project's component(s) budget can't be Greater than Project's budget"
+    },
+    {
+        "id":"15",
+        "code":9014,
+        "status":false,
+        "message":"Fail to complete operation due to bad user inputs or error occured during processing your request."
+    },
+    {
+        "id":"16",
+        "code":9015,
+        "status":false,
+        "message":"You can't handing over office to this user since has already received other office."
+    },
+    {
+        "id": "17",
+        "code": 9016,
+        "status": true,
+        "message": "Cant query your data. You need to provide the mandatory filters"
+    },
+    {
+        "id": "18",
+        "code": 9017,
+        "status": false,
+        "message": "Publish meeting before taking meeting minutes."
+    },
+    {
+        "id":"19",
+        "code":9018,
+        "status":false,
+        "message":"Un-supported file format"
+    },
+    {
+        "id":"20",
+        "code":9019,
+        "status":false,
+        "message":"Key to decrypt file not found"
+    },
+    {
+        "id":"21",
+        "code":9020,
+        "status":false,
+        "message":"Fail to decrypt file"
+    },
+    {
+        "id":"22",
+        "code":9021,
+        "status":false,
+        "message":"You need to be a user from ministry"
+    },
+    {
+        "id":"23",
+        "code":9022,
+        "status":false,
+        "message":"User already has active registered device"
+    },
+    {
+        "id":"24",
+        "code":9023,
+        "status":false,
+        "message":"Invalid email address"
+    },
+    {
+        "id":"25",
+        "code":9024,
+        "status":false,
+        "message":"Your token Expired, you need to login again"
+    }
+
+]

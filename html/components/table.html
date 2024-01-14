@@ -1,0 +1,44 @@
+<!-- Basic Bootstrap Table -->
+<div class="card">
+    <h5 class="card-header">{{data.title}}</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    {% for head in data.headers%}
+                    <th>{{head}}</th>
+                    {%endfor%}
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                {% for row in data.items %}
+                <tr>
+                    {% for key, value in row.items %}
+                    {%if data.has_action and key == 'actions' %}
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                {% for action, icon in value.items %}
+                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-{{icon}} me-2"></i>
+                                    {{action}}
+                                </a>
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </td>
+                    {%else%}
+                    <td>
+                        {{value}}
+                    </td>
+                    {%endif%}
+                    {%endfor%}
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Basic Bootstrap Table -->
