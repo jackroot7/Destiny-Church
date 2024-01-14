@@ -70,3 +70,19 @@ class EducationLevelInum(enum.Enum):
     def dict(cls):
         return [{"value":key.value, "name":key.name} for key in cls]
 
+
+class SMSTemplateInum(enum.Enum):
+    VISITORS = "VISITORS"
+    PRAYERS = "PRAYERS"
+    TENTHS = "TENTHS"
+    GREETINGS = "GREETINGS"
+    OTHER = "OTHER"
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+    
+    @classmethod
+    def dict(cls):
+        return [{"value":key.value, "name":key.name} for key in cls]
+
+

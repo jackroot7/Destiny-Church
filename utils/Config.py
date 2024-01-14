@@ -11,6 +11,7 @@ class SysConfigs:
                 'assistance': SpiritualAsistanceInum.dict(),
                 'maritual': MaritualStatusInum.dict(),
                 'education': EducationLevelInum.dict(),
+                'sms_templates': SMSTemplateInum.dict(),
             }
         }
         
