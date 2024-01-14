@@ -1,0 +1,1 @@
+59 23 * * 6 "path to cronjob"

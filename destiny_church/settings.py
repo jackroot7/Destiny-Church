@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'visitos_management',
+    'offerings_management',
+    'members_management',
     'management_panel',
     
     "django_htmx",

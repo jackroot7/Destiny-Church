@@ -4,8 +4,8 @@ from django.contrib import admin
 from .models import *
 
 
-# Get the AppConfig for the 'visitos_management' app
-app_config = apps.get_app_config('visitos_management')
+# Get the AppConfig for the 'members_management' app
+app_config = apps.get_app_config('members_management')
 
 # Get all models in the app
 models = app_config.get_models()

@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from api_managers.views import api
 
 
 
@@ -24,6 +23,5 @@ from api_managers.views import api
 
 urlpatterns = [
     path('', include('management_panel.urls'), name='management_panel'),
-    path("api/", api.urls),
     path('admin/', admin.site.urls),
 ]

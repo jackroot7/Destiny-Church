@@ -1,7 +1,7 @@
 # Churh Management System 
 (Sample project for explaining Django htmx and django-ninja framework)
 
-Django htmx Starter is a comprehensive boilerplate project designed to accelerate your web development with Django, htmx, and Django Ninja. This project provides a strong foundation for creating modern, dynamic web applications with Python.
+Django htmx Church management portal.
 
 ## Prerequisites
 
