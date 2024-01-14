@@ -39,6 +39,7 @@
     <!-- HTMX -->
     <script src="{% static 'js/htmx.min.js' %}" defer></script>
     <script src="{% static 'js/client-side-templates.js' %}" defer></script>
+ 
     <script src="{% static 'js/debug.js' %}" defer></script>
   </head>
   <body>
@@ -69,7 +70,7 @@
               </li>
 			        
               <li class="menu-item">
-                <a hx-get="{% url 'forms' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
+                <a hx-get="{% url 'visitors' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
                   <i class="menu-icon tf-icons bx bx-radar"></i>
                   <div data-i18n="Analytics">Visitors</div>
                 </a>
@@ -185,7 +186,7 @@
                 <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                   <div class="mb-2 mb-md-0"> © <script>
                       document.write(new Date().getFullYear());
-                    </script> All right reserved. Developed and maintained by <a href="https://ega.go.tz" target="_blank" class="footer-link fw-medium">eGA</a>
+                    </script> All right reserved. Developed and maintained by <a href="https://Destiny Church.go.tz" target="_blank" class="footer-link fw-medium">Destiny Church</a>
                   </div>
                 </div>
               </footer>
@@ -199,5 +200,6 @@
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
       </div>
+
     </body>
 </html>

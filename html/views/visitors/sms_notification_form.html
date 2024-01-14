@@ -1,0 +1,118 @@
+<div class="modal modal-lg fade " id="newNotificationForm" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newNotificationFormTitle">Send Visitors Notifications</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3">
+              <label for="nameWithTitle" class="form-label">Name</label>
+              <input
+                type="text"
+                id="nameWithTitle"
+                name="name"
+                class="form-control"
+                placeholder="Enter Name" />
+            </div>
+          </div>
+          <div class="row g-2 ">
+            <div class="col mb-3">
+              <label for="visPhone" class="form-label">Phone</label>
+              <input
+                type="email"
+                id="visPhone"
+                class="form-control"
+                name="visitor_phone"
+                placeholder="255 xxx xxx xxx" />
+            </div>
+            <div class="col mb-3">
+              <label for="visGender" class="text-light fw-medium d-block">Gender</label>
+              <div class="form-check form-check-inline mt-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="visitor_gender"
+                  id="visGenderMale"
+                  value="MALE" />
+                <label class="form-check-label" for="visGenderMale">MALE</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="visitor_gender"
+                  id="visGenderFemale"
+                  value="FEMALE" />
+                <label class="form-check-label" for="visGenderFemale">FEMALE</label>
+              </div>                     
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="visEmail" class="form-label">Emial (If available)</label>
+              <input
+                type="email"
+                id="visEmail"
+                class="form-control"
+                name="visitor_email"
+                placeholder="xxx@xxx.xxx" />
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col mb-3">
+              <label for="visReasons" class="form-label">Visit Reasons</label>
+              <input name="visitor_visit_reasons" type="text" id="visReasons" class="form-control" />
+            </div>
+            <div class="col mb-3">
+              <label for="visAssistance" class="form-label">Spiritual Assistance</label>
+              <input name="visitor_spiritual_asistance" type="text" id="visAssistance" class="form-control" />
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col mb-3">
+              <label for="visCity" class="form-label">Resident City</label>
+              <input
+                type="email"
+                id="visCity"
+                class="form-control"
+                name="visitor_resident_city"
+                placeholder="xxx@xxx.xxx" />
+            </div>
+            <div class="col mb-3">
+              <label for="visStreet" class="form-label">Resident Steet</label>
+              <input name="visitor_resident_street" type="text" id="visStreet" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="visComments" class="form-label">Comments from Visitor</label>
+              <textarea
+                id="visComments"
+                class="form-control"
+                name="visitor_comments"
+                placeholder="Anything you would love to share with us ?"
+               ></textarea>
+           
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+            <i class="menu-icon tf-icons bx bx-x"></i>
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+            <i class="menu-icon tf-icons bx bx-user-plus"></i>
+            Save Visitor
+          </button>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,10 +1,11 @@
 <!-- Basic Bootstrap Table -->
-<div class="card">
+<div class="card ps">
     <h5 class="card-header">{{data.title}}</h5>
     <div class="table-responsive text-nowrap">
-        <table class="table">
+        <table class="table ps">
             <thead>
                 <tr>
+                    <th>S.N</th>
                     {% for head in data.headers%}
                     <th>{{head}}</th>
                     {%endfor%}
@@ -12,19 +13,20 @@
             </thead>
             <tbody class="table-border-bottom-0">
                 {% for row in data.items %}
-                <tr>
+                <tr id="item-{{ forloop.counter }}">
+                    <td>{{forloop.counter}}</td>
                     {% for key, value in row.items %}
                     {%if data.has_action and key == 'actions' %}
                     <td>
-                        <div class="dropdown">
+                        <div class="dropstart">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                {% for action, icon in value.items %}
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-{{icon}} me-2"></i>
-                                    {{action}}
-                                </a>
+                                {% for action in value %}
+                                <button hx-target="#item-{{ forloop.counter }}" class="dropdown-item" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}' {{action.method}}="{% url action.url action.id %}"><i class="bx bx-{{action.icon}} me-2"></i>
+                                    {{action.name}}
+                                </button>
                                 {%endfor%}
                             </div>
                         </div>
@@ -41,4 +43,14 @@
         </table>
     </div>
 </div>
+
+<script>
+    document.body.addEventListener('htmx:afterDelete', function (event) {
+        var targetId = event.detail.target.id;
+        var tableRow = document.getElementById(targetId);
+        if (tableRow) {
+            tableRow.remove();
+        }
+    });
+</script>
 <!--/ Basic Bootstrap Table -->

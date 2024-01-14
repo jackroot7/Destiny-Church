@@ -23,6 +23,7 @@
   --bs-gray-25: rgba(67, 89, 113, 0.025);
   --bs-gray-50: rgba(67, 89, 113, 0.05);
   --bs-primary: #696cff;
+  --bs-initial: #B09548;
   --bs-secondary: #8592a3;
   --bs-success: #71dd37;
   --bs-info: #03c3ec;
@@ -7543,7 +7544,7 @@ button:focus-visible {
 .dropdown-menu {
   box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);
 }
-.mega-dropdown > .dropdown-menu {
+.mDestiny Church-dropdown > .dropdown-menu {
   left: 0 !important;
   right: 0 !important;
 }

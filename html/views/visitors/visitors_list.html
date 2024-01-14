@@ -1,0 +1,25 @@
+<div class="flex-row">
+    <div class="d-flex flex-row justify-content-end mb-2">
+        <button class="btn btn-md m-1 text-white" style="background-color: var(--bs-initial);" type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#newVisitorFormm"
+        >
+            <i class="menu-icon tf-icons bx bx-user-plus"></i>
+            New Visitor
+        </button>
+        <button class="btn btn-md m-1 text-white" style="background-color: var(--bs-initial);" type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#newNotificationForm"
+        >
+            <i class="menu-icon tf-icons bx bx-message-add"></i>
+            Send SMS Notifications
+        </button>
+        
+          {% include './new_visitor_form.html'%}
+          {% include './sms_notification_form.html'%}
+    </div>
+    <div>
+        {% include "components/table.html" with data=users_list %}
+    </div>
+</div>
+

@@ -7,6 +7,10 @@ class GenderInum(enum.Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+    
+    @classmethod
+    def dict(cls):
+        return [{"value":key.value, "name":key.name} for key in cls]
 
 
 class VisitReasonsInum(enum.Enum):
@@ -15,6 +19,10 @@ class VisitReasonsInum(enum.Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+    
+    @classmethod
+    def dict(cls):
+        return [{"value":key.value, "name":key.name} for key in cls]
 
 
 class SpiritualAsistanceInum(enum.Enum):
@@ -24,6 +32,10 @@ class SpiritualAsistanceInum(enum.Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+    
+    @classmethod
+    def dict(cls):
+        return [{"value":key.value, "name":key.name} for key in cls]
 
 
 class MaritualStatusInum(enum.Enum):
@@ -34,6 +46,10 @@ class MaritualStatusInum(enum.Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+    
+    @classmethod
+    def dict(cls):
+        return [{"value":key.value, "name":key.name} for key in cls]
 
 
 class EducationLevelInum(enum.Enum):
@@ -49,4 +65,8 @@ class EducationLevelInum(enum.Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+    
+    @classmethod
+    def dict(cls):
+        return [{"value":key.value, "name":key.name} for key in cls]
 

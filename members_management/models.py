@@ -9,6 +9,7 @@ from utils.Enums import *
 class ChurchMembers(models.Model):
     primary_key = models.AutoField(primary_key=True)
     member_unique_id = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
+    member_photo = models.CharField(max_length=9000, null=True, blank=True)
     member_name = models.CharField(max_length=9000)
     member_gender = models.CharField(choices=GenderInum.choices(), max_length=9000)
     member_phone = models.CharField(max_length=9000)
