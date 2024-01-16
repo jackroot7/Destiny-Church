@@ -39,10 +39,10 @@ class SpiritualAsistanceInum(enum.Enum):
 
 
 class MaritualStatusInum(enum.Enum):
+    SINGLE = "SINGLE"
     MARRIED = "MARRIED"
     WIDOW = "WIDOW"
     WIDOWER = "WIDOWER"
-    SINGLE = "SINGLE"
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]

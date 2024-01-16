@@ -1,0 +1,17 @@
+<div class="flex-row">
+    <div class="d-flex flex-row justify-content-end mb-2">
+        <button class="btn btn-md m-1 text-white" style="background-color: var(--bs-initial);" type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#newMembersForm"
+        >
+            <i class="menu-icon tf-icons bx bx-user-plus"></i>
+            New Member
+        </button>
+        
+          {% include './new_members_form.html'%}
+    </div>
+    <div>
+        {% include "components/table.html" with data=members_list %}
+    </div>
+</div>
+

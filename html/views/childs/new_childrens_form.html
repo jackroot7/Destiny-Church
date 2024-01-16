@@ -1,0 +1,93 @@
+<div class="modal modal-lg fade " id="newChildrenForm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newChildrenFormTitle">Children Form</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <form hx-post="{% url 'childrens' %}" hx-target="#content-div">
+          {% csrf_token %}
+          <div class="modal-body">
+            <div class="row">
+              <div class="col mb-3">
+                <label for="nameWithTitle" class="form-label">Name</label>
+                <input
+                  required
+                  type="text"
+                  id="nameWithTitle"
+                  name="child_name"
+                  class="form-control"
+                  placeholder="Child Full Name" />
+              </div>
+            </div>
+            <div class="row g-2 ">
+              <div class="col-4 mb-3">
+                <label for="childPhone" class="form-label">Age</label>
+                <input
+                  type="number"
+                  id="childPhone"
+                  class="form-control"
+                  name="child_age"
+                  placeholder="eg.10" />
+              </div>
+              <div class="col-4 mb-3">
+                <label for="childGender" class="text-light fw-medium d-block">Gender</label>
+                {%for gender in config.enums.genders %}
+                <div class="form-check form-check-inline mt-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="child_gender"
+                    id="childGender{{gender.name}}"
+                    value="{{gender.value}}" />
+                  <label class="form-check-label" for="childGender{{gender.name}}">{{gender.name}}</label>
+                </div>
+                {%endfor%}                    
+              </div>
+              <div class="col-4 mb-3">
+                <label for="childZone" class="form-label">Zone</label>
+                <select name="child_zone" class="form-select" id="childZone" aria-label="">
+                  {%for zone in config.enums.zones %}
+                      <option value="{{zone.zone_unique_id}}">{{zone.zone_name}}</option>
+                  {%endfor%}  
+                </select>
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col mb-3">
+                <label for="childCity" class="form-label">Resident City</label>
+                <input
+                  type="text"
+                  id="childCity"
+                  class="form-control"
+                  name="child_resident_city"
+                  placeholder="eg. Dodoma" />
+              </div>
+              <div class="col mb-3">
+                <label for="childStreet" class="form-label">Resident Steet</label>
+                <input  placeholder="eg. Majengo" name="child_resident_street" type="text" id="childStreet" class="form-control" />
+              </div>
+            </div>
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+              <i class="menu-icon tf-icons bx bx-x"></i>
+              Close
+            </button>
+            <button type="submit" value="submit" class="btn btn-primary" data-bs-dismiss="modal">
+              <i class="menu-icon tf-icons bx bx-user-plus"></i>
+              Save child
+            </button>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+

@@ -77,21 +77,21 @@
               </li>
 			        
               <li class="menu-item">
-                <a hx-get="{% url 'users' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
+                <a hx-get="{% url 'members' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
                   <i class="menu-icon tf-icons bx bx-group"></i>
                   <div data-i18n="Analytics">Members (Adults)</div>
                 </a>
               </li>
 			        
               <li class="menu-item">
-                <a hx-get="{% url 'users' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
+                <a hx-get="{% url 'childrens' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
                   <i class="menu-icon tf-icons bx bx-group"></i>
                   <div data-i18n="Analytics">Members (Childrens)</div>
                 </a>
               </li>
 			        
-              <li class="menu-item">
-                <a hx-get="{% url 'users' %}" hx-target="#content-div" hx-push-url="true"  class="menu-link">
+              <li  class="menu-item">
+                <a id="inactiveLink" style="cursor:not-allowed;" hx-get="#" hx-target="#content-div" hx-push-url="true"  class="menu-link">
                   <i class="menu-icon tf-icons bx bx-group"></i>
                   <div data-i18n="Analytics">Tenths</div>
                 </a>
@@ -200,6 +200,13 @@
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
       </div>
-
+      <script>
+        // Disable the link using JavaScript
+        document.getElementById("inactiveLink").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            alert("Work in  progress . . . ");
+        });
+    </script>
     </body>
+
 </html>

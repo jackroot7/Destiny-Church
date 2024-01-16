@@ -2,7 +2,14 @@
 <div class="card ps">
     <h5 class="card-header">{{data.title}}</h5>
     <div class="table-responsive text-nowrap">
-        <table class="table ps">
+        <div class="row m-2">
+            <div class="col-md-6">
+                <input class="form-control" type="text" id="searchInput" placeholder="Search..."
+                    hx-trigger="keyup delay:500ms">
+            </div>
+        </div>
+
+        <table id="dataTable" class="table ps">
             <thead>
                 <tr>
                     <th>S.N</th>
@@ -24,7 +31,10 @@
                             </button>
                             <div class="dropdown-menu">
                                 {% for action in value %}
-                                <button hx-target="#item-{{ forloop.counter }}" class="dropdown-item" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}' {{action.method}}="{% url action.url action.id %}"><i class="bx bx-{{action.icon}} me-2"></i>
+                                <button hx-target="#item-{{ forloop.counter }}" class="dropdown-item"
+                                    hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}'
+                                    {{action.method}}="{% url action.url action.id %}"><i
+                                        class="bx bx-{{action.icon}} me-2"></i>
                                     {{action.name}}
                                 </button>
                                 {%endfor%}
@@ -52,5 +62,28 @@
             tableRow.remove();
         }
     });
+
+    function performSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const dataTable = document.getElementById('dataTable');
+        const tableRows = dataTable.getElementsByTagName('tr');
+        const searchValue = searchInput.value.toLowerCase();
+
+        for (let i = 1; i < tableRows.length; i++) {
+            const rowData = tableRows[i].textContent.toLowerCase();
+
+            if (rowData.includes(searchValue)) {
+                tableRows[i].style.display = '';
+            } else {
+                tableRows[i].style.display = 'none';
+            }
+        }
+    }
+
+    // Add the input event listener
+    document.getElementById('searchInput').addEventListener('input', performSearch);
+
+    // Perform the initial search
+    performSearch();
+
 </script>
-<!--/ Basic Bootstrap Table -->

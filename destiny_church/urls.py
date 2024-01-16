@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import include, path
 
 
-
+site_name = "Distiny Church"
 
 
 urlpatterns = [
+    path('', include('members_management.urls'), name='members_management'),
     path('', include('visitos_management.urls'), name='visitos_management'),
     path('', include('management_panel.urls'), name='management_panel'),
     path('admin/', admin.site.urls),
