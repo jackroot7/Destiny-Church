@@ -6,7 +6,8 @@ from utils.utils import get_message
 
 # Create your views here.
 
-def home(request):      
+def home(request):   
+    # get_message(request, message = 'You have successfully login'+str(request.user.first_name), type="success", title='Welcome')   
     if request.htmx:
         return render(request, 'views/dashboard.html')
     else:
