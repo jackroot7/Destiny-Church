@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "authentication",
     'visitos_management',
     'offerings_management',
     'members_management',

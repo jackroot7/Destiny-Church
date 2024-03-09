@@ -8,12 +8,12 @@
                 bottom-0 end-0" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                     <i class="bx bx-bell me-2"></i>
-                    <div class="me-auto fw-medium">{{ message.extra_tags }}</div>
+                    <div class="me-auto fw-medium">{{ message.message.title }}</div>
                     <small class="message-time" data-time="{{ message.time|date:'U' }}"></small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                    {{ data|json_tag }}
+                    {{ message.message.time }}
                 </div>
             </div>
         </div>
