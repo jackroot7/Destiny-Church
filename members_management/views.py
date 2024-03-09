@@ -5,13 +5,12 @@ from django.views import View
 from management_panel.models import ChurchZones
 
 from utils.Config import SysConfigs
+from utils.utils import get_message
 from .models import *
 from django.core.paginator import Paginator
-from django.contrib import messages
 
 class MembersView(View):
     def get(self, request, **kwargs):
-        messages.success(request, 'You have successfully login')
         
         church_members_list = ChurchMembers.objects.all()
 
