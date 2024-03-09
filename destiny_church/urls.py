@@ -22,6 +22,7 @@ site_name = "Distiny Church"
 
 
 urlpatterns = [
+    path('', include('authentication.urls'), name='authentication'),
     path('', include('offerings_management.urls'), name='offerings_management'),
     path('', include('members_management.urls'), name='members_management'),
     path('', include('visitos_management.urls'), name='visitos_management'),
