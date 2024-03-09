@@ -1,3 +1,4 @@
+
 {% if messages %}
     {% for message in messages %}
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
@@ -11,7 +12,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                    {{ message }}
+                    {% with data=message %}
+                        {{data.time}}
+                    {% endwith %}
                 </div>
             </div>
         </div>
