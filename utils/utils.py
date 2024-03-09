@@ -3,7 +3,7 @@ from django.contrib import messages
 
 def get_message(request, message, type = 'info', title="Notification")->messages:
 
-    body = {"title": title, "message": message, "time": datetime.now().strftime("%H:%M:%S")}
+    body = {"title": title, "message": message, "time": datetime.now()}
 
     if type == 'success':
         message = messages.success(request,body)

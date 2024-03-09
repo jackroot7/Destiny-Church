@@ -4,16 +4,25 @@
     {% for message in messages %}
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
             <div class="bs-toast toast fade show 
-                bg-success 
+                {% if message.tags %}
+                    {% if message.tags == 'error' %}
+                        bg-danger
+                    {% elif message.tags == 'info' %}
+                        bg-info
+                    {% else %}
+                        alert-{{ message.tags }}
+                    {% endif %}
+                {% endif %}
+                 
                 bottom-0 end-0" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                     <i class="bx bx-bell me-2"></i>
                     <div class="me-auto fw-medium">{{ message.message.title }}</div>
-                    <small class="message-time" data-time="{{ message.time|date:'U' }}"></small>
+                    <small class="message-time" data-time="{{ message.message.time|date:'U' }}"></small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                    {{ message.message.time }}
+                    {{ message.message.message }}
                 </div>
             </div>
         </div>
@@ -22,7 +31,7 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+   /* document.addEventListener('DOMContentLoaded', function() {
         const messageTimes = document.querySelectorAll('.message-time');
         messageTimes.forEach(function(element) {
             const timestamp = parseInt(element.getAttribute('data-time'), 10);
@@ -30,16 +39,16 @@
             let displayTime = '';
 
             if (timeDifference < 60) {
-                displayTime = timeDifference + ' secs ago';
+                displayTime = timeDifference + ' Secs ago';
             } else if (timeDifference < 3600) {
-                displayTime = Math.floor(timeDifference / 60) + ' mins ago';
+                displayTime = Math.floor(timeDifference / 60) + ' Mins ago';
             } else if (timeDifference < 86400) {
-                displayTime = Math.floor(timeDifference / 3600) + ' hrs ago';
+                displayTime = Math.floor(timeDifference / 3600) + ' Hrs ago';
             } else {
-                displayTime = Math.floor(timeDifference / 86400) + ' days ago';
+                displayTime = Math.floor(timeDifference / 86400) + ' Days ago';
             }
 
             element.textContent = displayTime;
         });
-    });
+    });/*
 </script>
