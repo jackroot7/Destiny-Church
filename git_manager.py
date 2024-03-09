@@ -1,11 +1,12 @@
+from datetime import datetime
 import git
 import time
 
 def commit_and_push():
     repo = git.Repo('.')  # Assuming the script is in the root directory of your Git repository
     repo.git.add('--all')
-    commit_message = input("Enter commit message: ")
-    repo.index.commit(commit_message)
+    # commit_message = input("Enter commit message: ")
+    repo.index.commit("Auto commit made by Git script: "+ str(datetime.now().strftime("%d/%m/%Y, %H:%M:%S")))
     origin = repo.remote(name='origin')
     origin.push('master')
 
