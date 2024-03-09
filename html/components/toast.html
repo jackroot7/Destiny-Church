@@ -7,7 +7,7 @@
                 <div class="toast-header">
                     <i class="bx bx-bell me-2"></i>
                     <div class="me-auto fw-medium">{{ message }}</div>
-                    <small>11 mins ago</small>
+                    <small class="message-time" data-time="{{ message.time|date:'U' }}"></small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
@@ -17,3 +17,27 @@
         </div>
     {% endfor %}
 {% endif %}
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageTimes = document.querySelectorAll('.message-time');
+        messageTimes.forEach(function(element) {
+            const timestamp = parseInt(element.getAttribute('data-time'), 10);
+            const timeDifference = Math.floor((Date.now() / 1000) - timestamp);
+            let displayTime = '';
+
+            if (timeDifference < 60) {
+                displayTime = timeDifference + ' secs ago';
+            } else if (timeDifference < 3600) {
+                displayTime = Math.floor(timeDifference / 60) + ' mins ago';
+            } else if (timeDifference < 86400) {
+                displayTime = Math.floor(timeDifference / 3600) + ' hrs ago';
+            } else {
+                displayTime = Math.floor(timeDifference / 86400) + ' days ago';
+            }
+
+            element.textContent = displayTime;
+        });
+    });
+</script>

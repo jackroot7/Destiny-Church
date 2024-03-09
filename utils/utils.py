@@ -1,8 +1,9 @@
+from datetime import datetime
 from django.contrib import messages
 
 def get_message(request, message, type = 'info', title="Notification")->messages:
 
-    body = {"message": message, }
+    body = {"title": title, "message": message, "time": datetime.now().strftime("%H:%M:%S")}
 
     if type == 'success':
         message = messages.success(request,body)
@@ -14,5 +15,5 @@ def get_message(request, message, type = 'info', title="Notification")->messages
         message = messages.warning(request,body)
     else:
         message = messages.info(request,body)
-        
+
     return message
