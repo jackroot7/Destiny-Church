@@ -15,7 +15,7 @@ def main():
     while True:
         commit_and_push()
         print("Changes committed and pushed successfully.")
-        time.sleep(120)  # Sleep for 2 minutes (120 seconds)
+        time.sleep(300)  # Sleep for 5 minutes (300 seconds)
 
 if __name__ == "__main__":
     main()
