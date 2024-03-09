@@ -1,3 +1,4 @@
+{% load custom_tags %}
 
 {% if messages %}
     {% for message in messages %}
@@ -12,9 +13,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                    {% with data=message %}
-                        {{data.time}}
-                    {% endwith %}
+                    {{ data|json_tag }}
                 </div>
             </div>
         </div>
