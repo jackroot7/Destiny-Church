@@ -17,7 +17,7 @@ class AuthenticationView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            get_message(request, 'You have successfully login', type="success", title='Welcome again '+str(user.first_name))
+            get_message(request, 'You have successfully login'+str(user.first_name), type="success", title='Welcome')
             return redirect("/")
         else:
             get_message(request, 'Invalid username or password.')
@@ -25,8 +25,8 @@ class AuthenticationView(View):
 
 class LogoutView(View):
     def get(self, request, **kwargs):
-        logout(re)
-
+        logout(request)
+        return redirect("/login")
 
 class RegistrationView(View):
     def get(self, request, **kwargs):
