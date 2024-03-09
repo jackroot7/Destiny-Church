@@ -1,17 +1,26 @@
 <div class="flex-row">
+    <div class="d-flex flex-row justify-content-start mb-2">
+        {% for key, value in statistics.items %}
+            {% include '../../components/card.html' with key=key value=value %}
+        {% endfor %}
+    </div>
+
+
+</div>
+
+<div class="flex-row">
     <div class="d-flex flex-row justify-content-end mb-2">
         <button class="btn btn-md m-1 text-white" style="background-color: var(--bs-initial);" type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#newMembersForm"
-        >
+            data-bs-toggle="modal" data-bs-target="#newMembersForm">
             <i class="menu-icon tf-icons bx bx-user-plus"></i>
             New Member
         </button>
-        
-          {% include './new_members_form.html'%}
+
+        {% include './new_members_form.html'%}
     </div>
     <div>
         {% include "components/table.html" with data=members_list %}
+        
+        {% include '../../components/pagination.html' %}
     </div>
 </div>
-

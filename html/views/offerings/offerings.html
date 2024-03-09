@@ -1,0 +1,38 @@
+{% load static %}
+<div class="flex-row">
+    <div class="offering-main">
+        <div class="offering-card">
+            <div class="brand-logo avatar-online img-rounded">
+                <img src="{% static 'img/offer.png' %}" alt class="rounded-circle bg-white" />
+            </div>
+            <p class="heading">Tenths</p>
+            <p class="para">
+                Manage members tenths (Mafungu ya kumi ya washirika)
+            </p>
+            <div class="overlay"></div>
+            <a hx-get="{% url 'tenths_list' %}" hx-target="#content-div" hx-push-url="true" class="card-btn">View More . . .</a>
+        </div>
+        <div class="offering-card">
+            <div class="brand-logo avatar-online img-rounded">
+                <img src="{% static 'img/gift.png' %}" alt class="rounded-circle bg-white" />
+            </div>
+            <p class="heading">Contributions</p>
+            <p class="para">
+                Contributions for different church activities (Michango mbalimbali)
+            </p>
+            <div class="overlay"></div>
+            <a class="card-btn">View More . . .</a>
+        </div>
+        <div class="offering-card">
+            <div class="brand-logo avatar-online img-rounded">
+                <img src="{% static 'img/dollar.png' %}" alt class="rounded-circle bg-white" />
+            </div>
+            <p class="heading">Sunday Offering</p>
+            <p class="para">
+                Sunday services offerings (Sadaka za kawaida za jumapili)
+            </p>
+            <div class="overlay"></div>
+            <a class="card-btn">View More . . .</a>
+        </div>
+    </div>
+</div>

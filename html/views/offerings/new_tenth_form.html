@@ -1,0 +1,52 @@
+<div class="modal modal-lg fade " id="newTenth" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newTenthTitle">
+          <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
+          New Tenth
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form hx-post="{% url 'tenths_list' %}" hx-target="#content-div">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="row g-2">
+            <div class="col mb-3">
+              <label for="tenthMember" class="form-label">Select Member</label>
+              <select name="tenth_member" class="form-select" id="tenthMember" aria-label="">
+                {%for member in members_list %}
+                <option value="{{member.member_unique_id}}">{{member.member_name}}</option>
+                {%endfor%}
+              </select>
+            </div>
+            <div class="col mb-3">
+              <label for="tenthDate" class="form-label">Date (Week)</label>
+              <input id="tenthDate" class="form-control" type="date"  name="tenth_date" id="html5-week-input">
+            </div>
+            <div class="col mb-3">
+
+              <label for="tenthAmount" class="form-label">Tenth Amount</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input name="tenth_amount" id="tenthAmount" type="number" class="form-control" placeholder="Amount" aria-label="Amount (to the nearest dollar)">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+            <i class="menu-icon tf-icons bx bx-x"></i>
+            Close
+          </button>
+          <button type="submit" value="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            <i class="menu-icon tf-icons bx bx-save"></i>
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

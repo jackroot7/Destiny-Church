@@ -1,21 +1,24 @@
 import threading
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
-from management_panel.models import ChurchZones, SMSTemplates
+from management_panel.models import ChurchZones
 
 from utils.Config import SysConfigs
-from utils.SMS_Notification import SMSMessage
 from .models import *
+from django.core.paginator import Paginator
 
 class MembersView(View):
     def get(self, request, **kwargs):
         
-        curch_members_list = ChurchMembers.objects.all()
+        church_members_list = ChurchMembers.objects.all()
+
+        paginator = Paginator(church_members_list, 5)
+        church_members = paginator.page(1)
         
         members_list = {
             'title': "List of Church Members",
-            'headers':['Name','Phone','Zone','Street','Maritual','Reg. Date'],
+            'headers':['Name','Phone','Zone','Street','Maritual','Reg. Date', 'Action'],
             'has_action': True,
             'items':list(map(lambda  member: {
                 "name":member[1].member_name,
@@ -24,13 +27,24 @@ class MembersView(View):
                 "street":member[1].member_resident_street,
                 "maritual":member[1].member_maritual_status,
                 "date":member[1].member_registered_date.strftime("%d-%b-%Y"),
-            }, enumerate(curch_members_list, start=1))),
+                'actions':[{'url':'members','method':'hx-delete','name': 'Delete','icon': 'trash','id':str(member[1].member_unique_id)}]
+            }, enumerate(church_members, start=1))),
             
         }
+       
+        statistics = {
+            "MALE": church_members_list.filter(member_gender = GenderInum.MALE.value).count(),
+            "FEMALE": church_members_list.filter(member_gender = GenderInum.FEMALE.value).count(),
+            "SINGLE": church_members_list.filter( member_maritual_status = MaritualStatusInum.SINGLE.value).count(),
+            "MARRIED": church_members_list.filter( member_maritual_status = MaritualStatusInum.MARRIED.value).count(),
+            "WIDOW": church_members_list.filter( member_maritual_status = MaritualStatusInum.WIDOW.value).count(),
+            "WIDOWER": church_members_list.filter( member_maritual_status = MaritualStatusInum.WIDOWER.value).count(),
+        }
+        
         if request.htmx:
-            return render(request, 'views/members/members_list.html', {'members_list':members_list,'config':SysConfigs.get_configs()} )
+            return render(request, 'views/members/members_list.html', {"statistics":statistics,"pagenation":church_members,'members_list':members_list,'config':SysConfigs.get_configs()} )
         else:
-            return render(request, 'base_wraper.html', {'config':SysConfigs.get_configs(), 'members_list':members_list,'template': 'views/members/members_list.html'} )
+            return render(request, 'base_wraper.html', {"statistics":statistics,"pagenation":church_members, 'config':SysConfigs.get_configs(), 'members_list':members_list,'template': 'views/members/members_list.html'} )
 
 
     def post(self, request, **kwargs):
@@ -40,6 +54,8 @@ class MembersView(View):
 
         return redirect("members")
     
+
+
 
     def delete(self, request, action_id, **kwargs):
         ChurchMembers.objects.filter(member_unique_id=action_id).delete()
