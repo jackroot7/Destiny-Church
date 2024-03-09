@@ -4,6 +4,7 @@ from django.contrib import messages
 def get_message(request, message, type = 'info', title="Notification")->messages:
 
     body = {"title": title, "message": message, "time": datetime.now()}
+    print(body)
 
     if type == 'success':
         messageobj = messages.success(request,body)
