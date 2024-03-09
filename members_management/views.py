@@ -8,7 +8,11 @@ from utils.Config import SysConfigs
 from utils.utils import get_message
 from .models import *
 from django.core.paginator import Paginator
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
+
+@method_decorator(login_required, name='dispatch')
 class MembersView(View):
     def get(self, request, **kwargs):
         
@@ -61,9 +65,6 @@ class MembersView(View):
     def delete(self, request, action_id, **kwargs):
         ChurchMembers.objects.filter(member_unique_id=action_id).delete()
         return HttpResponse("")
-
-
-
 
 class ChildrensView(View):
     def get(self, request, **kwargs):

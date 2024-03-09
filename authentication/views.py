@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from utils.Config import SysConfigs
 from utils.utils import get_message
@@ -23,6 +23,9 @@ class AuthenticationView(View):
             get_message(request, 'Invalid username or password.')
         return redirect("/login")
 
+class LogoutView(View):
+    def get(self, request, **kwargs):
+        logout(re)
 
 
 class RegistrationView(View):
