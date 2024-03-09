@@ -6,14 +6,14 @@ def get_message(request, message, type = 'info', title="Notification")->messages
     body = {"title": title, "message": message, "time": datetime.now()}
 
     if type == 'success':
-        message = messages.success(request,body)
+        messageobj = messages.success(request,body)
 
-    if type == 'error':
-        message = messages.error(request,body)
+    elif type == 'error':
+        messageobj = messages.error(request,body)
 
-    if type == 'warning':
-        message = messages.warning(request,body)
+    elif type == 'warning':
+        messageobj = messages.warning(request,body)
     else:
-        message = messages.info(request,body)
+        messageobj = messages.info(request,body)
 
-    return message
+    return messageobj

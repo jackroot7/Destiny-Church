@@ -7,7 +7,7 @@ from utils.utils import get_message
 # Create your views here.
 
 def home(request):  
-    
+
     get_message(request, 'You have successfully login', type="success")
     
     if request.htmx:
