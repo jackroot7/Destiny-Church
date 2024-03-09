@@ -4,7 +4,7 @@
         {% if message.tags %}
             {% if message.tags == 'error' %}
                 alert-danger
-            {% if message.tags == 'info' %}
+            {% elif message.tags == 'info' %}
                 alert-info
             {% else %}
                 alert-{{ message.tags }}
