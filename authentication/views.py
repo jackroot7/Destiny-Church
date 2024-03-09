@@ -14,13 +14,13 @@ class AuthenticationView(View):
     def post(self, request, **kwargs):
         username = request.POST.get('username')
         password = request.POST.get('password')
+        print(username, password)
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("/")  # Redirect to home page after successful login
+            return redirect("/")
         else:
             messages.error(request, 'Invalid username or password.')
-
         return redirect("/login")
 
 
