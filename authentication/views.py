@@ -14,7 +14,6 @@ class AuthenticationView(View):
     def post(self, request, **kwargs):
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print(username, password)
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
