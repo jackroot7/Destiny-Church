@@ -18,6 +18,7 @@ class AuthenticationView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, 'Invalid username or password.')
             return redirect("/")
         else:
             messages.error(request, 'Invalid username or password.')
