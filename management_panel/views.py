@@ -6,7 +6,6 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):  
-    messages.success(request, 'You have successfully login')
     if request.htmx:
         return render(request, 'views/dashboard.html')
     else:
