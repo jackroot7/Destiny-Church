@@ -65,7 +65,7 @@
               <p class="mb-4">Please sign-in with your account to use our system</p>
             </div>
 
-            <form hx-post="{% url 'login' %}" hx-target="#content-div">
+            <form hx-post="{% url 'login' %}" hx-get="/">
               {% csrf_token %}
               <div class="mb-3">
                 <label for="email" class="form-label">Email or Username</label>
