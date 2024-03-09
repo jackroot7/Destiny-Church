@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
-from django.contrib import messages
 from django.views import View
 from utils.Config import SysConfigs
+from utils.utils import get_message
 
 class AuthenticationView(View):
     def get(self, request, **kwargs):
@@ -17,10 +17,10 @@ class AuthenticationView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, 'You have successfully login')
+            get_message(request, 'You have successfully login')
             return redirect("/")
         else:
-            messages.error(request, 'Invalid username or password.')
+            get_message(request, 'Invalid username or password.')
         return redirect("/login")
 
 
