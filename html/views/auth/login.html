@@ -46,7 +46,6 @@
 
 <body>
   <!-- Content -->
-              {% include "components/toast.html" %}
   <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
       <div class="authentication-inner">
@@ -64,6 +63,7 @@
               <h4 class="mb-2">Welcome to Destinty Church! 👋</h4>
               <p class="mb-4">Please sign-in with your account to use our system</p>
             </div>
+              {% include "components/alert.html" %}
 
             <form method="post" action="/login">
               {% csrf_token %}
