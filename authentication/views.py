@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
 from utils.Config import SysConfigs
 
@@ -8,6 +8,11 @@ class AuthenticationView(View):
             return render(request, 'views/auth/login.html')
         else:
             return render(request, 'views/auth/login.html')
+
+    def post(self, request, **kwargs):
+        
+
+        return redirect("/")
 
 class RegistrationView(View):
     def get(self, request, **kwargs):
