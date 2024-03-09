@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.views import View
 from utils.Config import SysConfigs
 
@@ -10,9 +12,18 @@ class AuthenticationView(View):
             return render(request, 'views/auth/login.html')
 
     def post(self, request, **kwargs):
-        
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("/")  # Redirect to home page after successful login
+        else:
+            messages.error(request, 'Invalid username or password.')
 
-        return redirect("/")
+        return redirect("/login")
+
+
 
 class RegistrationView(View):
     def get(self, request, **kwargs):
