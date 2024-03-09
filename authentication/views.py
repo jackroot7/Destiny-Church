@@ -17,7 +17,7 @@ class AuthenticationView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            get_message(request, 'You have successfully login')
+            get_message(request, 'You have successfully login', type="success", title='Welcome again '+str(user.first_name))
             return redirect("/")
         else:
             get_message(request, 'Invalid username or password.')
